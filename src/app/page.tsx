@@ -18,7 +18,7 @@ export default function Home() {
     try {
       const currentUrl = window.location.href;
 
-      const response = await fetch(`https://playlist-creator-youtube.vercel.app/api/playlist?url=${url}`);
+      const response = await fetch(`${currentUrl}/api/playlist?url=${url}`);
       const data = await response.json();
       if (data?.urlMusic && !audioUrls.includes(data.urlMusic)) {
         setAudioUrls((prevUrls) => [...prevUrls, data.urlMusic]);
